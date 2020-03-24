@@ -4,7 +4,7 @@ PROJECT(nicp)
 
 # Optionally compiling part
 OPTION(BUILD_NICP_VIEWER "enables NICP viewer" true)
-OPTION(BUILD_NICP_TEST "enables NICP test" false)
+OPTION(BUILD_NICP_TEST "enables NICP test" true)
 
 # The library prefix
 SET(LIB_PREFIX nicp)
@@ -73,7 +73,7 @@ IF(OPENMP_FOUND)
 ENDIF(OPENMP_FOUND)
 
 # Find Opencv
-FIND_PACKAGE(OpenCV 2.4.8 REQUIRED)
+FIND_PACKAGE(OpenCV)
 INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 
 # Set up the top-level include directories
@@ -101,3 +101,5 @@ ENDIF(BUILD_NICP_VIEWER)
 
 # Include the subdirectories
 ADD_SUBDIRECTORY(nicp)
+
+

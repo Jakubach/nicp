@@ -76,7 +76,8 @@ namespace nicp {
      */
     template<typename OtherDerived>
       inline InformationMatrix& transformInPlace(const Eigen::MatrixBase<OtherDerived> &other) const {
-      const Eigen::Matrix3f& R = other.block<3,3>(0,0);
+      const Eigen::Matrix3f& R;
+      R = other.block<3,3>(0,0);
       block<3, 3>(0, 0) = R * block<3, 3>(0, 0) * R.transpose(); 
       return *this;
     }
